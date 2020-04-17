@@ -33,13 +33,22 @@ class FirestoreData {
     var user: User?
     init(email: String, username: String, uid: String){
         user = User(email: email, username: username, uid: uid)
-        let docRef = db.collection("users").document(uid)
-        docRef.getDocument { (document, error) in
+        let userRef = db.collection("users").document(uid)
+        userRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data()
-                self.user!.workouts = dataDescription!["workouts"]! as! [Workout]
-                self.unwrapBests(bests: dataDescription!["personal bests"] as! [String])
-                self.user!.dailyGoals = dataDescription!["Daily Goals"]! as! [String:[Goal]]
+                self.unwrapBests(bests: document.data()!["personal bests"] as! [String])
+                let workoutRef = userRef.collection("workouts")
+                workoutRef.getDocuments { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            self.user!.workouts.append(Workout(name: document.data()["name"] as! String, exercises: self.unwrapExercises(exercises: document.data()["exercises"] as! [String])))
+                        }
+                    }
+                }
+                //self.user!.workouts = dataDescription!["workouts"]! as! [Workout]
+                //self.user!.dailyGoals = dataDescription!["Daily Goals"]! as! [String:[Goal]]
             } else {
                 self.addUser(email: email, username: username, uid: uid)
                 self.user!.personalBests = [PersonalBest(exercise: "Bench Press", weight: 0), PersonalBest(exercise: "Squat", weight: 0), PersonalBest(exercise: "Deadlift", weight: 0)]
@@ -53,9 +62,7 @@ class FirestoreData {
             "email": email,
             "username": username,
             "uid": uid,
-            "workouts": [],
-            "personal bests": ["Bench Press,0.0", "Squat,0.0", "Deadlift,0.0"],
-            "Daily Goals": [:]
+            "personal bests": ["Bench Press,0.0", "Squat,0.0", "Deadlift,0.0"]
         ]) { (err) in
             if let err = err{
                 print("Error adding document: \(err)")
@@ -66,7 +73,17 @@ class FirestoreData {
     }
     
     func addWorkout(name: String, exercises: [Exercise]){
-        
+        user!.workouts.append(Workout(name: name, exercises: exercises))
+        db.collection("users").document(user!.uid).collection("workouts").document(name).setData([
+            "name": name,
+            "exercises": exercises.map{$0.toString()}
+        ]) { (err) in
+            if let err = err{
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with reference ID: \(name)")
+            }
+        }
     }
     
     func addBest(exercise: String, weight: Double){
@@ -82,9 +99,18 @@ class FirestoreData {
     
     func unwrapBests(bests: [String]){
         for best in bests{
-            var splits = best.split(separator: ",").map{String($0)}
+            let splits = best.split(separator: ",").map{String($0)}
             self.user!.personalBests.append(PersonalBest(exercise: splits[0], weight: splits[1].toDouble()!))
         }
+    }
+    
+    func unwrapExercises(exercises: [String]) -> [Exercise] {
+        var result: [Exercise] = []
+        for exercise in exercises{
+            let splits = exercise.split(separator: ",").map{String($0)}
+            result.append(Exercise(name: splits[0], sets: Int(splits[1])!, reps: Int(splits[2])!, weight: splits[3].toDouble()!))
+        }
+        return result
     }
 }
 

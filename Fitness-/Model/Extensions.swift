@@ -42,10 +42,10 @@ extension UIButton{
 }
 
 extension UITextField{
-    func addUnderline(){
+    func addUnderline(color: UIColor){
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0.0, y: self.frame.height-1, width: self.frame.width, height: 1.0)
-        bottomLine.backgroundColor = UIColor.white.cgColor
+        bottomLine.backgroundColor = color.cgColor
         self.layer.addSublayer(bottomLine)
     }
 }
@@ -92,5 +92,23 @@ extension Date {
 extension String {
     func toDouble() -> Double? {
         return NumberFormatter().number(from: self)?.doubleValue
+    }
+    
+    func isInt() -> Bool {
+
+        if let intValue = Int(self) {
+            return true
+        }
+
+        return false
+    }
+    
+    func isDouble() -> Bool {
+
+        if let doubleValue = Double(self) {
+            return true
+        }
+
+        return false
     }
 }

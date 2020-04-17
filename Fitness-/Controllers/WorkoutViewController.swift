@@ -11,7 +11,6 @@ import UIKit
 class WorkoutViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout{
     
 
-    @IBOutlet weak var segmentedWeight: UISegmentedControl!
     @IBOutlet weak var addBest: UIButton!
     @IBOutlet weak var addWorkout: UIButton!
     @IBOutlet weak var workoutTable: UITableView!
@@ -24,8 +23,6 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate, UIColle
         addWorkout.layer.cornerRadius = addWorkout.frame.width/10
         addWorkout.backgroundColor = constants.optimalBlue
         addBest.backgroundColor = constants.optimalBlue
-        segmentedWeight.layer.borderColor = constants.CGoptimalBlue
-        segmentedWeight.layer.borderWidth = 2
         
         workoutTable.delegate = self
         workoutTable.dataSource = self
@@ -99,12 +96,21 @@ class WorkoutViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     @IBAction func newWorkout(_ sender: Any) {
-        data.addWorkout(name: "Bicep Blaster", sets: 4, reps: 12, weight: 60)
+        var cap: [Exercise] = [Exercise(name: "Overhead Bar Press", sets: 4, reps: 10, weight: 70), Exercise(name: "Dumbbell Press", sets: 4, reps: 12, weight: 35)]
+        data.addWorkout(name: "Shoulder Shambler", exercises: cap)
+        //data.addWorkout(name: "Bicep Blaster", sets: 4, reps: 12, weight: 60)
         workoutTable.reloadData()
     }
     
     @IBAction func newPersonalBest(_ sender: Any) {
+        performSegue(withIdentifier: "newBest", sender: self)
         prCollection.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? PRViewController {
+            dest.workoutPage = self
+        }
     }
     /*
     // MARK: - Navigation

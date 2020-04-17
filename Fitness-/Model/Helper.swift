@@ -16,6 +16,9 @@ enum constants{
     static let dumbbell: UIImage? = UIImage(named: "dumbbell")
     static let optimalBlue: UIColor = UIColor.rgb(142, 219, 236)
     static let CGoptimalBlue: CGColor = CGColor(srgbRed: 142/255, green: 219/255, blue: 239/255, alpha: 1)
+    static let subOptimalBlue: UIColor = UIColor.rgb(6,123,139)
+    static let topColor: UIColor = UIColor.cyan
+    static let bottomColor: UIColor = UIColor.systemBlue
 }
 func checkUsername(_ username: String) -> Bool {
     return username != "" && (username.isAlphanumeric || username.contains("_") || username.contains("-"))

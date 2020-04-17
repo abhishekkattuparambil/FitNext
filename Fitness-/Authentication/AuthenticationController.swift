@@ -24,22 +24,20 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
     let loginButton: FBLoginButton = FBLoginButton()
     
     var googleColor = UIColor.rgb(220, 78, 65)
-    var topColor = UIColor.cyan
-    var bottomColor = UIColor.systemBlue
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addVerticalGradientLayer(topColor: topColor, bottomColor: bottomColor)
+    
+        view.addVerticalGradientLayer(topColor: constants.topColor, bottomColor: constants.bottomColor)
         
         signUpButton.layer.cornerRadius = signUpButton.frame.width/25
         logInButton.layer.cornerRadius = logInButton.frame.width/25
         googleButton.layer.cornerRadius = googleButton.frame.width/25
         facebookButton.layer.cornerRadius = facebookButton.frame.width/25
-        signUpButton.setTitleColor(bottomColor, for: .normal)
-        logInButton.setTitleColor(bottomColor, for: .normal)
-        emailField.addUnderline()
-        passwordField.addUnderline()
+        signUpButton.setTitleColor(constants.bottomColor, for: .normal)
+        logInButton.setTitleColor(constants.bottomColor, for: .normal)
+        emailField.addUnderline(color: UIColor.white)
+        passwordField.addUnderline(color: UIColor.white)
         logInButton.disable()
         
         emailField.addTarget(self, action: #selector(fieldsFilled), for: .editingChanged)
@@ -145,7 +143,7 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
         }
         GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
             if let error = error {
-                print("cool")
+                print(error.localizedDescription)
                 return
             }
             if let user = result {

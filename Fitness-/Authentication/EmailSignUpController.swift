@@ -16,22 +16,20 @@ class EmailSignUpController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var showPassword: UIButton!
-    var topColor = UIColor.cyan
-    var bottomColor = UIColor.systemBlue
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createButton.layer.cornerRadius = createButton.frame.width/8
-        createButton.setTitleColor(bottomColor, for: .normal)
+        createButton.setTitleColor(constants.bottomColor, for: .normal)
         createButton.setTitle("Create", for: .normal)
         createButton.disable()
         
-        view.addVerticalGradientLayer(topColor: topColor, bottomColor: bottomColor)
+        view.addVerticalGradientLayer(topColor: constants.topColor, bottomColor: constants.bottomColor)
         
-        usernameField.addUnderline()
-        emailField.addUnderline()
-        passwordField.addUnderline()
+        usernameField.addUnderline(color: UIColor.white)
+        emailField.addUnderline(color: UIColor.white)
+        passwordField.addUnderline(color: UIColor.white)
         usernameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
@@ -52,6 +50,8 @@ class EmailSignUpController: UIViewController, UITextFieldDelegate {
     @objc func fieldsFilled(_ target:UITextField) {
         if (usernameField.text != nil && usernameField.text != "" && emailField.text != nil && emailField.text != "" && passwordField.text != nil && passwordField.text != "") {
             createButton.enable()
+        } else {
+            createButton.disable()
         }
         
     }
