@@ -11,7 +11,7 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
-class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
+class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButtonDelegate, UITextFieldDelegate {
     
     
 
@@ -28,14 +28,14 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        view.addVerticalGradientLayer(topColor: constants.topColor, bottomColor: constants.bottomColor)
+        self.view.addVerticalGradientLayer(topColor: constants.optimalBlue, bottomColor: constants.suboptimalBlue)
         
         signUpButton.layer.cornerRadius = signUpButton.frame.width/25
         logInButton.layer.cornerRadius = logInButton.frame.width/25
         googleButton.layer.cornerRadius = googleButton.frame.width/25
         facebookButton.layer.cornerRadius = facebookButton.frame.width/25
-        signUpButton.setTitleColor(constants.bottomColor, for: .normal)
-        logInButton.setTitleColor(constants.bottomColor, for: .normal)
+        signUpButton.setTitleColor(constants.suboptimalBlue, for: .normal)
+        logInButton.setTitleColor(constants.suboptimalBlue, for: .normal)
         emailField.addUnderline(color: UIColor.white)
         passwordField.addUnderline(color: UIColor.white)
         logInButton.disable()
@@ -52,6 +52,9 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
         
         loginButton.delegate = self
         loginButton.permissions = ["email", "public_profile"]
+        
+        emailField.delegate = self
+        passwordField.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,8 +93,8 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
             guard let uid = result?.user.uid else { return }
             guard let email = result?.user.email else {return }
             guard let username = result?.user.displayName else { return }
-            data = FirestoreData(email: email, username: username, uid: uid)
-            self.performSegue(withIdentifier: "signIn", sender: self)
+            //data = FirestoreData(email: email, username: username, uid: uid, origin: self)
+            self.performSegue(withIdentifier: "getData", sender: self)
         }
     }
     
@@ -108,8 +111,7 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
             guard let uid = result?.user.uid else { return }
             guard let email = result?.user.email else {return }
             guard let username = result?.user.displayName else { return }
-            data = FirestoreData(email: email, username: username, uid: uid)
-            self.performSegue(withIdentifier: "signIn", sender: self)
+            self.performSegue(withIdentifier: "getData", sender: self)
         }
     }
     
@@ -139,18 +141,17 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
             if let error = error {
                 self.presentAlertViewController(title: error.localizedDescription, message: "Please try signing in again")
             }
-            self.performSegue(withIdentifier: "signIn", sender: self)
-        }
-        GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            if let user = result {
-                let answer = user as! Dictionary<String, String>
-                print(answer["id"]!)
-                data = FirestoreData(email: answer["email"]!, username: answer["name"]!, uid: Auth.auth().currentUser!.uid)
-            }
+           /* GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                if let user = result {
+                    let answer = user as! Dictionary<String, String>
+                    data = FirestoreData(email: answer["email"]!, username: answer["name"]!, uid: Auth.auth().currentUser!.uid, origin: self) //current user not initialized and throws error
+                }
+            }*/
+             self.performSegue(withIdentifier: "getData", sender: self)
         }
     }
     
@@ -160,7 +161,10 @@ class AuthenticationController: UIViewController, GIDSignInDelegate, LoginButton
         try! Auth.auth().signOut()
     }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

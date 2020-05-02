@@ -48,9 +48,7 @@ extension UITextField{
         bottomLine.backgroundColor = color.cgColor
         self.layer.addSublayer(bottomLine)
     }
-}
-
-extension UITextField {
+    
     func disableAutoFill() {
         if #available(iOS 11, *) {
             textContentType = .oneTimeCode
@@ -60,9 +58,14 @@ extension UITextField {
     }
 }
 
+
 extension String {
     var isAlphanumeric: Bool {
         return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+    }
+    
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
     }
 }
 
@@ -94,6 +97,10 @@ extension String {
         return NumberFormatter().number(from: self)?.doubleValue
     }
     
+    func toInt() -> Int? {
+        return NumberFormatter().number(from: self)?.intValue
+    }
+    
     func isInt() -> Bool {
 
         if let intValue = Int(self) {
@@ -112,3 +119,5 @@ extension String {
         return false
     }
 }
+
+

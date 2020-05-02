@@ -9,5 +9,5 @@
 import UIKit
 
 class WorkoutTableCell: UITableViewCell {
-    @IBOutlet weak var workoutButton: UIButton!
+    @IBOutlet weak var workoutLabel: UILabel!
 }

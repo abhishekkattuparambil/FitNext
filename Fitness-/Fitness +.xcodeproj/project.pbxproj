@@ -14,11 +14,21 @@
 		6F16E6502446FF9E002EE260 /* FirestoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16E64F2446FF9E002EE260 /* FirestoreData.swift */; };
 		6F16E652244979B3002EE260 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F16E651244979B3002EE260 /* GoogleService-Info.plist */; };
 		6F16E654244A6A48002EE260 /* PRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16E653244A6A48002EE260 /* PRViewController.swift */; };
+		6F16E656244AC200002EE260 /* WorkoutCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16E655244AC200002EE260 /* WorkoutCustomizationViewController.swift */; };
+		6F16E658244AE4F6002EE260 /* ExerciseCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16E657244AE4F5002EE260 /* ExerciseCustomizationViewController.swift */; };
+		6F16E65A244B050A002EE260 /* ExerciseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16E659244B050A002EE260 /* ExerciseTableCell.swift */; };
 		6F3293F1243A9B2D009E59EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3293F0243A9B2D009E59EB /* HomeViewController.swift */; };
 		6F3293F4243A9B61009E59EB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3293F3243A9B61009E59EB /* CalendarViewController.swift */; };
 		6F3293F6243A9B78009E59EB /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3293F5243A9B78009E59EB /* WorkoutViewController.swift */; };
 		6F3293F8243A9B81009E59EB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3293F7243A9B81009E59EB /* SettingsViewController.swift */; };
-		6F3293FA243A9BA3009E59EB /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3293F9243A9BA3009E59EB /* GraphViewController.swift */; };
+		6F3C29C5245A792D001633FD /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C29C4245A792D001633FD /* CalendarCell.swift */; };
+		6F3C29C7245BEC3F001633FD /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C29C6245BEC3F001633FD /* ProfileChangeViewController.swift */; };
+		6F3C29C9245C16E6001633FD /* CompletionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C29C8245C16E6001633FD /* CompletionCell.swift */; };
+		6F9545DD244C347700AAC426 /* GoalTableCompletionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9545DC244C347700AAC426 /* GoalTableCompletionCell.swift */; };
+		6F9545DF244C34A100AAC426 /* GoalTableIncrementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9545DE244C34A100AAC426 /* GoalTableIncrementCell.swift */; };
+		6F9545E1244E769F00AAC426 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9545E0244E769E00AAC426 /* NewGoalViewController.swift */; };
+		6F9545E3244E7ED400AAC426 /* GoalTableWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9545E2244E7ED400AAC426 /* GoalTableWorkoutCell.swift */; };
+		6F9545E7244EAC8A00AAC426 /* CustomGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9545E6244EAC8A00AAC426 /* CustomGoalViewController.swift */; };
 		6FAD49F1243C1B1700A8310E /* EmailSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAD49F0243C1B1700A8310E /* EmailSignUpController.swift */; };
 		6FAD49F3243C51B400A8310E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAD49F2243C51B400A8310E /* Helper.swift */; };
 		6FAD4A0D243D1F0200A8310E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAD4A0C243D1F0200A8310E /* Extensions.swift */; };
@@ -37,11 +47,21 @@
 		6F16E64F2446FF9E002EE260 /* FirestoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreData.swift; sourceTree = "<group>"; };
 		6F16E651244979B3002EE260 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F16E653244A6A48002EE260 /* PRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRViewController.swift; sourceTree = "<group>"; };
+		6F16E655244AC200002EE260 /* WorkoutCustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCustomizationViewController.swift; sourceTree = "<group>"; };
+		6F16E657244AE4F5002EE260 /* ExerciseCustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCustomizationViewController.swift; sourceTree = "<group>"; };
+		6F16E659244B050A002EE260 /* ExerciseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableCell.swift; sourceTree = "<group>"; };
 		6F3293F0243A9B2D009E59EB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6F3293F3243A9B61009E59EB /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		6F3293F5243A9B78009E59EB /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		6F3293F7243A9B81009E59EB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		6F3293F9243A9BA3009E59EB /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		6F3C29C4245A792D001633FD /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		6F3C29C6245BEC3F001633FD /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
+		6F3C29C8245C16E6001633FD /* CompletionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionCell.swift; sourceTree = "<group>"; };
+		6F9545DC244C347700AAC426 /* GoalTableCompletionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableCompletionCell.swift; sourceTree = "<group>"; };
+		6F9545DE244C34A100AAC426 /* GoalTableIncrementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableIncrementCell.swift; sourceTree = "<group>"; };
+		6F9545E0244E769E00AAC426 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
+		6F9545E2244E7ED400AAC426 /* GoalTableWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableWorkoutCell.swift; sourceTree = "<group>"; };
+		6F9545E6244EAC8A00AAC426 /* CustomGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoalViewController.swift; sourceTree = "<group>"; };
 		6FAD49F0243C1B1700A8310E /* EmailSignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpController.swift; sourceTree = "<group>"; };
 		6FAD49F2243C51B400A8310E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		6FAD4A0C243D1F0200A8310E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -84,7 +104,13 @@
 			isa = PBXGroup;
 			children = (
 				6F16E64A2446E298002EE260 /* WorkoutTableCell.swift */,
+				6F16E659244B050A002EE260 /* ExerciseTableCell.swift */,
 				6F16E64C2446E2BA002EE260 /* PersonalBestCollectionCell.swift */,
+				6F9545DC244C347700AAC426 /* GoalTableCompletionCell.swift */,
+				6F9545E2244E7ED400AAC426 /* GoalTableWorkoutCell.swift */,
+				6F9545DE244C34A100AAC426 /* GoalTableIncrementCell.swift */,
+				6F3C29C4245A792D001633FD /* CalendarCell.swift */,
+				6F3C29C8245C16E6001633FD /* CompletionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -107,8 +133,12 @@
 				6F16E6442446C734002EE260 /* InitialViewController.swift */,
 				6F3293F5243A9B78009E59EB /* WorkoutViewController.swift */,
 				6F3293F7243A9B81009E59EB /* SettingsViewController.swift */,
-				6F3293F9243A9BA3009E59EB /* GraphViewController.swift */,
 				6F16E653244A6A48002EE260 /* PRViewController.swift */,
+				6F16E657244AE4F5002EE260 /* ExerciseCustomizationViewController.swift */,
+				6F16E655244AC200002EE260 /* WorkoutCustomizationViewController.swift */,
+				6F9545E0244E769E00AAC426 /* NewGoalViewController.swift */,
+				6F9545E6244EAC8A00AAC426 /* CustomGoalViewController.swift */,
+				6F3C29C6245BEC3F001633FD /* ProfileChangeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,22 +331,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F16E656244AC200002EE260 /* WorkoutCustomizationViewController.swift in Sources */,
 				6F3293F6243A9B78009E59EB /* WorkoutViewController.swift in Sources */,
 				6F3293F4243A9B61009E59EB /* CalendarViewController.swift in Sources */,
+				6F9545E7244EAC8A00AAC426 /* CustomGoalViewController.swift in Sources */,
+				6F3C29C5245A792D001633FD /* CalendarCell.swift in Sources */,
 				6F16E654244A6A48002EE260 /* PRViewController.swift in Sources */,
+				6F3C29C7245BEC3F001633FD /* ProfileChangeViewController.swift in Sources */,
+				6F3C29C9245C16E6001633FD /* CompletionCell.swift in Sources */,
+				6F9545E3244E7ED400AAC426 /* GoalTableWorkoutCell.swift in Sources */,
+				6F9545DF244C34A100AAC426 /* GoalTableIncrementCell.swift in Sources */,
 				6F3293F8243A9B81009E59EB /* SettingsViewController.swift in Sources */,
+				6F9545DD244C347700AAC426 /* GoalTableCompletionCell.swift in Sources */,
 				6F16E6452446C734002EE260 /* InitialViewController.swift in Sources */,
 				6FEB91622436A818001A9ACC /* AppDelegate.swift in Sources */,
-				6F3293FA243A9BA3009E59EB /* GraphViewController.swift in Sources */,
 				6FEB91642436A818001A9ACC /* SceneDelegate.swift in Sources */,
 				6F16E6502446FF9E002EE260 /* FirestoreData.swift in Sources */,
 				6F16E64B2446E298002EE260 /* WorkoutTableCell.swift in Sources */,
+				6F16E65A244B050A002EE260 /* ExerciseTableCell.swift in Sources */,
 				6FAD49F3243C51B400A8310E /* Helper.swift in Sources */,
 				6F3293F1243A9B2D009E59EB /* HomeViewController.swift in Sources */,
 				6F16E64D2446E2BA002EE260 /* PersonalBestCollectionCell.swift in Sources */,
+				6F16E658244AE4F6002EE260 /* ExerciseCustomizationViewController.swift in Sources */,
 				6FAD4A0D243D1F0200A8310E /* Extensions.swift in Sources */,
 				6FAD4A0F243D241600A8310E /* AuthenticationController.swift in Sources */,
 				6FAD49F1243C1B1700A8310E /* EmailSignUpController.swift in Sources */,
+				6F9545E1244E769F00AAC426 /* NewGoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
